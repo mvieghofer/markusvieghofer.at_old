@@ -1,0 +1,178 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2rem;
+    position: absolute;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+section {
+    display: block;
+    padding: 50px 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    position: relative;
+}
+
+section:nth-child(odd) {
+    background: #f0f0f0;
+}
+
+/*
+section::before {
+    content: '';
+    position: absolute;
+    top: -5%;
+    left: 0;
+    background: inherit;
+    height: 10%;
+    width: 100%;
+    transform: skewY(-3deg);
+}*/
+
+section h1 {
+    margin: 0;
+    padding: 0px;
+    text-align: center;
+}
+
+#scroller {
+    width: 100%;
+    display: block;
+    line-height: 400px;
+    position: relative;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#main {
+    background: #2c3e50;
+}
+
+#main div {
+    width: 100%;
+    text-align: center;
+}
+
+
+#descriptionWrapper {
+    width:237px;
+    font-size:36px;
+    line-height:40px;
+    font-family:'Muli';
+    color:#ecf0f1;
+    height:40px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-15px;
+    margin-left:-118px;
+}
+
+.visible {
+    float:left;
+    font-weight:600;
+    overflow:hidden;
+    height:40px;
+}
+
+.visible p {
+    float:left;
+    margin:0;
+    display: inline;
+}
+
+#description {
+    margin-top: 0;
+    padding-left: 110px;
+    text-align: left;
+    list-style: none;
+    animation: 6s linear 0s normal none infinite change;
+    -webkit-animation: 6s linear 0s normal none infinite change;
+    -moz-animation: 6s linear 0s normal none infinite change;
+    -o-animation: 6s linear 0s normal none infinite change;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav {
+    position: relative;
+}
+
+.navLink {
+    position: absolute;
+    display: block;
+}
+
+#navSocial {
+    top: 500px;
+    left: 15%;
+    z-index: 99;
+}
+
+#navSkills {
+    top: 750px;
+    left: 50%;
+    z-index: 99;
+}
+
+#navBlog {
+    top: 500px;
+    left: 85%;
+    z-index: 99;
+}
+
+.socialLinks {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+
+.socialLinks li {
+    display: inline-block;
+    padding: 5%;
+}
+
+.github::before {
+    content: "";
+    height: 7em;
+    width: 7em;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('/public/images/github_white.png');
+}
+
+.github:hover::before {
+    background-image: url('/public/images/github.png');
+}
+
+.twitter::before {
+    content: "";
+    height: 162px;
+    width: 162px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('/public/images/twitter_white.png');
+}
+
+.twitter:hover::before {
+    background-image: url('/public/images/twitter.png');
+}

@@ -2,6 +2,8 @@ window.onload = function() {
     if (window.location.hash) {
         smoothScrollToAnchor();
     }
+
+    getBlogPosts();
 };
 
 (function() {
@@ -12,6 +14,36 @@ window.onload = function() {
         navLink.addEventListener("click", navLinkClickListener);
     };
 })();
+
+function getBlogPosts() {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+            console.log(xmlHttp.responseText);
+            setBlogPosts(JSON.parse(xmlHttp.responseText));
+        }
+    }
+    xmlHttp.open("GET", '/home/get-blog-posts', true);
+    xmlHttp.send();
+}
+
+function setBlogPosts(blogPosts) {
+    var blogPostsContainer = document.getElementsByClassName('js-blogPosts')[0];
+    for (var i = 0; i < blogPosts.length; i++) {
+        var blogPost = blogPosts[i];
+        var div = document.createElement('div');
+        div.className = 'blogPost';
+        div.style.background = "url('" + blogPost.image + "')";
+        var a = document.createElement('a');
+        var linkText = document.createTextNode(blogPost.title);
+        a.className = 'blogPost-link';
+        a.appendChild(linkText);
+        a.title = blogPost.title;
+        a.href = blogPost.link;
+        div.appendChild(a);
+        blogPostsContainer.appendChild(div);
+    }
+}
 
 function smoothScrollToAnchor() {
     var id = window.location.hash;

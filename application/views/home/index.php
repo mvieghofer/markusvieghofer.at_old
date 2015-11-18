@@ -25,13 +25,13 @@
         <li><a href="https://github.com/mvieghofer" target="_blank" class="github"><div>Github</div></a></li>
     </ul>
 </section>
-<section id="blog" class="subsection">
-    <h1>Blog</h1>
-    <div class="">
-
-    </div>
-</section>
 <section id="skills" class="subsection">
     <h1>Skills</h1>
+</section>
+<section id="blog" class="subsection">
+    <h1>Blog</h1>
+    <div class="blogPosts js-blogPosts">
+
+    </div>
 </section>
 <script type="text/javascript" src="/public/javascript/main.js"></script>

@@ -2,7 +2,7 @@ window.onload = function() {
     if (window.location.hash) {
         smoothScrollToAnchor();
     }
-
+    startDescriptionAnimation();
     getBlogPosts();
 };
 
@@ -15,11 +15,62 @@ window.onload = function() {
     };
 })();
 
+function startDescriptionAnimation() {
+    var descriptions = [
+        'a developer',
+        'a father',
+        'a free athlete',
+        'a boyfriend',
+        'a geek',
+        'a dog person'
+    ];
+    var index = 1;
+    setTimeout(startDescriptionAnimationImpl, 3000, descriptions, index);
+}
+
+function startDescriptionAnimationImpl(descriptions, index) {
+    if (index == descriptions.length) {
+        index = 0;
+    }
+    console.log(descriptions[index]);
+    var newDescriptionText = descriptions[index],
+        description = document.getElementById('description'),
+        duration = 200,
+        descriptionWrapper = document.getElementById('descriptionWrapper'),
+        lineHeight = window.getComputedStyle(descriptionWrapper).getPropertyValue('line-height');
+    lineHeight = lineHeight.substring(0, lineHeight.length - 2);
+    var steps = 100,
+        stepSize = lineHeight / steps,
+        sleepTime = duration / steps;
+    animateDescription(description, 0, stepSize, sleepTime, steps, newDescriptionText);
+    setTimeout(startDescriptionAnimationImpl, 3000, descriptions, ++index);
+}
+
+function animateDescription(description, step, stepSize, sleepTime, maxSteps, newDescriptionText) {
+    var top = description.style.top;
+    if (top.indexOf('px') > 0) {
+        top = top.substring(0, top.length - 2);
+    } else {
+        top = 0;
+    }
+    description.style.top = (parseFloat(top) + stepSize) + "px";
+    if (step < maxSteps) {
+        setTimeout(animateDescription, sleepTime, description, ++step, stepSize, sleepTime, maxSteps, newDescriptionText);
+    } else if (step == maxSteps) {
+        var newText = document.createTextNode(newDescriptionText);
+        description.removeChild(description.firstChild);
+        description.appendChild(newText);
+        description.style.top = "-" + (stepSize * maxSteps) + "px";
+        setTimeout(animateDescription, sleepTime, description, ++step, stepSize, sleepTime, maxSteps, newDescriptionText);
+    } else if (step < (maxSteps * 2)) {
+        setTimeout(animateDescription, sleepTime, description, ++step, stepSize, sleepTime, maxSteps, newDescriptionText);
+    }
+}
+
 function getBlogPosts() {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-            console.log(xmlHttp.responseText);
             setBlogPosts(JSON.parse(xmlHttp.responseText));
         }
     }
@@ -37,6 +88,7 @@ function setBlogPosts(blogPosts) {
         var a = document.createElement('a');
         var linkText = document.createTextNode(blogPost.title);
         a.className = 'blogPost-link';
+        a.target = '_blank';
         a.appendChild(linkText);
         a.title = blogPost.title;
         a.href = blogPost.link;

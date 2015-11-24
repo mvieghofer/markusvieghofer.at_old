@@ -5,6 +5,7 @@ html, body {
     margin: 0;
     font-size: 1.2rem;
     position: absolute;
+    font-family: 'Actor', serif;
 }
 
 a {
@@ -27,20 +28,8 @@ section {
 }
 
 section:nth-child(odd) {
-    background: #e0e0e0;
+    background: #bdc3c7;
 }
-
-/*
-section::before {
-    content: '';
-    position: absolute;
-    top: -5%;
-    left: 0;
-    background: inherit;
-    height: 10%;
-    width: 100%;
-    transform: skewY(-3deg);
-}*/
 
 section h1 {
     margin: 0;
@@ -59,27 +48,28 @@ section h1 {
 }
 
 #main {
-    background: #2c3e50;
+    background: #16a085;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 #main div {
-    width: 100%;
     text-align: center;
 }
 
 
 #descriptionWrapper {
-    width:237px;
-    font-size:36px;
-    line-height:40px;
-    font-family:'Muli';
-    color:#ecf0f1;
-    height:40px;
-    position:absolute;
-    top:50%;
-    left:50%;
-    margin-top:-15px;
-    margin-left:-118px;
+    font-size: 36px;
+    line-height: 40px;
+    color: #ecf0f1;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#description {
+    position: relative;
 }
 
 .visible {
@@ -90,53 +80,31 @@ section h1 {
 }
 
 .visible p {
-    float:left;
-    margin:0;
     display: inline;
-}
-
-#description {
-    margin-top: 0;
-    padding-left: 110px;
-    text-align: left;
-    list-style: none;
-    animation: 6s linear 0s normal none infinite change;
-    -webkit-animation: 6s linear 0s normal none infinite change;
-    -moz-animation: 6s linear 0s normal none infinite change;
-    -o-animation: 6s linear 0s normal none infinite change;
+    margin: 0;
 }
 
 .container {
-    position: absolute;
+    position: relative;
     top: 50%;
     transform: translateY(-50%);
 }
 
-.nav {
-    position: relative;
+.navLinks {
+    position: absolute;
+    display: block;
+    list-style: none;
+    padding: 0 10px;
+    z-index: 99;
+    right: 0;
+}
+
+.navLinks li {
+    display: inline;
 }
 
 .navLink {
-    position: absolute;
-    display: block;
-}
-
-#navSocial {
-    top: 500px;
-    left: 15%;
-    z-index: 99;
-}
-
-#navSkills {
-    top: 750px;
-    left: 50%;
-    z-index: 99;
-}
-
-#navBlog {
-    top: 500px;
-    left: 85%;
-    z-index: 99;
+    padding: 0 0 0 10px;
 }
 
 .socialLinks {
@@ -152,8 +120,8 @@ section h1 {
 
 .github::before {
     content: "";
-    height: 7em;
-    width: 7em;
+    height: 5em;
+    width: 5em;
     display: inline-block;
     background-repeat: no-repeat;
     background-size: cover;
@@ -169,8 +137,8 @@ section h1 {
 
 .twitter::before {
     content: "";
-    height: 162px;
-    width: 162px;
+    height: 5em;
+    width: 5em;
     display: inline-block;
     background-repeat: no-repeat;
     background-size: cover;
@@ -182,6 +150,23 @@ section h1 {
 
 .twitter:hover::before {
     background-image: url('/public/images/twitter.png');
+}
+
+.linkedIn::before {
+    content: "";
+    height: 5em;
+    width: 5em;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('/public/images/linkedin_white.png');
+    transition: background 0.2s ease-in-out;
+    -moz-transition: background 0.2s ease-in-out;
+    -webkit-transition: background 0.2s ease-in-out;
+}
+
+.linkedIn:hover::before {
+    background-image: url('/public/images/linkedin.png');
 }
 
 .blogPosts {
@@ -213,4 +198,68 @@ section h1 {
 
 .blogPost-link:hover {
     background: rgba(255, 255, 255, 0.9);
+}
+
+#skills {
+    text-align: center;
+}
+
+.skillSection {
+    box-sizing: border-box;
+    width: 100%;
+    display: inline-block;
+}
+
+.skillSection h3 {
+    font-size: 1.1em;
+    padding: 0;
+    margin: 2em 0 0.2em 0;
+    display: inline-block;
+}
+
+.skillList {
+    list-style: none;
+    margin: 0.5em 0 0 0;
+    display: table;
+    width: 100%;
+}
+
+.skill {
+    width: 100%;
+    display: table-row;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+.skillEntry {
+    display: table-cell;
+    width: 50%;
+    padding: 0 0.5% 0 0.5%;
+    position: relative;
+}
+
+.rating-container {
+    width: 100px;
+    height: 75%;
+    border: 1px solid #bdc3c7;
+    border-radius: 2px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.rating {
+    background: #16a085;
+    height: 100%;
+    transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -webkit-transition: background 0.5s ease-in-out;
+}
+
+.advanced {
+    width: 100%;
+}
+
+.medium {
+    width: 66%;
 }

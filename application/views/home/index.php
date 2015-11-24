@@ -1,35 +1,108 @@
-<nav class="nav">
-    <a href="#social" class="navLink" id="navSocial">Social</a>
-    <a href="#blog" class="navLink" id="navBlog">Blog</a>
-    <a href="#skills" class="navLink" id="navSkills">Skills</a>
-</nav>
+<ul class="navLinks">
+    <li><a href="#social" class="navLink" id="navSocial">#social</a></li>
+    <li><a href="#skills" class="navLink" id="navSkills">#skills</a></li>
+    <li><a href="#blog" class="navLink" id="navBlog">#blog</a></li>
+</ul>
 <section id="main">
     <div class="container">
         <div>I'm Markus Vieghofer</div>
-        <div class="descriptionWrapper">
+        <div id="descriptionWrapper">
             <div class="visible">
-                <p>I'm</p>
-                <ul id="description">
-                    <li>a developer</li>
-                    <li>a father</li>
-                </ul>
+                <p>I'm <span id="description">a developer</span></p>
             </div>
         </div>
 
     </div>
 </section>
 <section id="social" class="subsection">
-    <h1>Social</h1>
+    <h1>#social</h1>
     <ul class="socialLinks">
         <li><a href="https://twitter.com/mvieghofer" target="_blank" class="twitter"><div>Twitter</div></a></li>
         <li><a href="https://github.com/mvieghofer" target="_blank" class="github"><div>Github</div></a></li>
+        <li><a href="https://at.linkedin.com/in/mvieghofer" target="_blank" class="linkedIn"><div>LinkedIn</div></a></li>
     </ul>
 </section>
 <section id="skills" class="subsection">
-    <h1>Skills</h1>
+    <h1>#skills</h1>
+    <div class="skillSection">
+        <h3>Programming Languages</h3>
+        <div class="skillList">
+            <div class="skill">
+                <div class="skillEntry">Java</div>
+                <div class="skillEntry"><div class="rating-container"><div class="rating advanced"></div></div></div>
+            </div>
+            <div class="skill">
+                <div class="skillEntry">Android</div>
+                <div class="skillEntry"><div class="rating-container"><div class="rating advanced"></div></div></div>
+            </div>
+            <div class="skill">
+                <div class="skillEntry">PHP</div>
+                <div class="skillEntry"><div class="rating-container"><div class="rating advanced"></div></div></div>
+            </div>
+            <div class="skill">
+                <div class="skillEntry">HTML</div>
+                <div class="skillEntry"><div class="rating-container"><div class="rating advanced"></div></div></div>
+            </div>
+            <div class="skill">
+                <div class="skillEntry">JavaScript</div>
+                <div class="skillEntry"><div class="rating-container"><div class="rating medium"></div></div></div>
+            </div>
+            <div class="skill">
+                <div class="skillEntry">CSS</div>
+                <div class="skillEntry"><div class="rating-container"><div class="rating medium"></div></div></div>
+            </div>
+            <div class="skill">
+                <div class="skillEntry">C#</div>
+                <div class="skillEntry"><div class="rating-container"><div class="rating medium"></div></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="skillSection">
+        <h3>Build Tools</h3>
+        <div class="skillList">
+            <div class="skill">
+                <div class="skillEntry">Maven</div>
+                <div class="skillEntry"><div class="rating-container"><div class="rating advanced"></div></div></div>
+            </div>
+            <div class="skill">
+                <div class="skillEntry">Gradle</div>
+                <div class="skillEntry"><div class="rating-container"><div class="rating medium"></div></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="skillSection">
+        <h3>Frameworks</h3>
+        <div class="skillList">
+            <div class="skill">
+                <div class="skillEntry">Hibernate</div>
+                <div class="skillEntry"><div class="rating-container"><div class="rating advanced"></div></div></div>
+            </div>
+            <div class="skill">
+                <div class="skillEntry">ElasticSearch</div>
+                <div class="skillEntry"><div class="rating-container"><div class="rating medium"></div></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="skillSection">
+        <h3>Misc</h3>
+        <div class="skillList">
+            <div class="skill">
+                <div class="skillEntry">SQL</div>
+                <div class="skillEntry"><div class="rating-container"><div class="rating advanced"></div></div></div>
+            </div>
+            <div class="skill">
+                <div class="skillEntry">XML</div>
+                <div class="skillEntry"><div class="rating-container"><div class="rating advanced"></div></div></div>
+            </div>
+            <div class="skill">
+                <div class="skillEntry">Design Patterns</div>
+                <div class="skillEntry"><div class="rating-container"><div class="rating advanced"></div></div></div>
+            </div>
+        </div>
+    </div>
 </section>
 <section id="blog" class="subsection">
-    <h1>Blog</h1>
+    <h1>#blog</h1>
     <div class="blogPosts js-blogPosts">
 
     </div>

@@ -27,7 +27,7 @@ section {
     position: relative;
 }
 
-section:nth-child(odd) {
+section:nth-child(even) {
     background: #bdc3c7;
 }
 
@@ -291,4 +291,11 @@ section h1 {
     right: 10px;
     left: 95%;
     cursor: pointer;
+}
+
+.indicator.up:hover {
+    border-width: 3px;
+    transition: border-width 0.1s ease-in-out;
+    -moz-transition: border-width 0.1s ease-in-out;
+    -webkit-transition: border-width 0.1s ease-in-out;
 }

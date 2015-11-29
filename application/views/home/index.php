@@ -5,7 +5,7 @@
 </ul>
 <section id="main">
     <div class="container">
-        <div>I'm Markus Vieghofer</div>
+        <div id="meText">I'm Markus Vieghofer</div>
         <div id="descriptionWrapper">
             <div class="visible">
                 <p>I'm <span id="description">a developer</span></p>

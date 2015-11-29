@@ -57,6 +57,9 @@ section h1 {
     text-align: center;
 }
 
+#meText {
+    font-size: 2em;
+}
 
 #descriptionWrapper {
     font-size: 36px;
@@ -66,6 +69,7 @@ section h1 {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    margin: 20px 0;
 }
 
 #description {

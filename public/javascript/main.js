@@ -52,10 +52,14 @@ function checkScrollIndicator(scrollIndicator, classNames, upClass) {
 
 function removeClassName(element, className) {
     var classNames = element.className,
-        indexOfClass = classNames.indexOf(className);
-        newClassNames = classNames.substring(0, indexOfClass);
-    if (indexOfClass + className.length < classNames.length) {
-        newClassNames += classNames.substring(indexOfClass + className.length, classNames.length);
+        indexOfClass = classNames.indexOf(className),
+        newClassNames = classNames;
+    if (indexOfClass > 0) {
+        var newClassNames = classNames.substring(0, indexOfClass);
+        console.log(indexOfClass);
+        if (indexOfClass + className.length < classNames.length) {
+            newClassNames += classNames.substring(indexOfClass + className.length, classNames.length);
+        }
     }
     return newClassNames.trim();
 }

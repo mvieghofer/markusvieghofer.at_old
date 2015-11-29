@@ -3,6 +3,7 @@
     <li><a href="#skills" class="navLink" id="navSkills">#skills</a></li>
     <li><a href="#blog" class="navLink" id="navBlog">#blog</a></li>
 </ul>
+<div class="indicator arrow bounce"></div>
 <section id="main">
     <div class="container">
         <div id="meText">I'm Markus Vieghofer</div>

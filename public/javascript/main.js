@@ -3,6 +3,7 @@ window.onload = function() {
         smoothScrollToAnchor();
     }
     startDescriptionAnimation();
+    addScrollIndicatorListener();
     getBlogPosts();
 };
 
@@ -14,6 +15,45 @@ window.onload = function() {
         navLink.addEventListener("click", navLinkClickListener);
     };
 })();
+
+function addScrollIndicatorListener() {
+    document.onscroll = function() {
+        var scrollIndicator = document.getElementsByClassName('indicator')[0],
+            classNames = scrollIndicator.className,
+            upClass = "up",
+            bounceClass = "bounce";
+        if (document.body.scrollTop == 0) {
+            scrollIndicator.className = removeClassName(scrollIndicator, upClass) + " " + bounceClass;
+            scrollIndicator.onclick = emptyScrollListener;
+        } else if (classNames.indexOf(upClass, classNames.length - upClass.length) === -1) {
+            scrollIndicator.className = classNames + " " +  upClass;
+            scrollIndicator.className = removeClassName(scrollIndicator, bounceClass);
+            scrollIndicator.onclick = scrollToTop;
+        }
+    }
+}
+
+function removeClassName(element, className) {
+    var classNames = element.className,
+        indexOfClass = classNames.indexOf(className);
+        newClassNames = classNames.substring(0, indexOfClass);
+    if (indexOfClass + className.length < classNames.length) {
+        newClassNames += classNames.substring(indexOfClass + className.length, classNames.length);
+    }
+    return newClassNames.trim();
+}
+
+function emptyScrollListener() {
+    console.log('click');
+    return false;
+}
+
+function scrollToTop() {
+    var scrollPosition = 0,
+        duration = 200,
+        id = '';
+    scrollTo(document.body, scrollPosition, duration, id);
+}
 
 function startDescriptionAnimation() {
     var descriptions = [

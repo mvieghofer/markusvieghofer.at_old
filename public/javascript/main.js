@@ -135,21 +135,33 @@ function getBlogPosts() {
 }
 
 function setBlogPosts(blogPosts) {
+    console.log('got the blog posts');
     var blogPostsContainer = document.getElementsByClassName('js-blogPosts')[0];
-    for (var i = 0; i < blogPosts.length; i++) {
-        var blogPost = blogPosts[i];
-        var div = document.createElement('div');
-        div.className = 'blogPost';
-        div.style.background = "url('" + blogPost.image + "')";
-        var a = document.createElement('a');
-        var linkText = document.createTextNode(blogPost.title);
-        a.className = 'blogPost-link';
-        a.target = '_blank';
-        a.appendChild(linkText);
-        a.title = blogPost.title;
-        a.href = blogPost.link;
-        div.appendChild(a);
-        blogPostsContainer.appendChild(div);
+    if (blogPostsContainer.children.item(0).dataset.id !== blogPosts[0].id) {
+        removeAllChildren(blogPostsContainer);
+        for (var i = 0; i < blogPosts.length; i++) {
+            var blogPost = blogPosts[i];
+            console.log(blogPost.id);
+            var div = document.createElement('div');
+            div.className = 'blogPost';
+            div.style.background = "url('" + blogPost.image + "')";
+            div.dataset.id = blogPost.id;
+            var a = document.createElement('a');
+            var linkText = document.createTextNode(blogPost.title);
+            a.className = 'blogPost-link';
+            a.target = '_blank';
+            a.appendChild(linkText);
+            a.title = blogPost.title;
+            a.href = blogPost.url;
+            div.appendChild(a);
+            blogPostsContainer.appendChild(div);
+        }
+    }
+}
+
+function removeAllChildren(container) {
+    while(container.firstChild) {
+        container.removeChild(container.firstChild);
     }
 }
 

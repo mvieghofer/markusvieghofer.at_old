@@ -127,7 +127,13 @@ function getBlogPosts() {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-            setBlogPosts(JSON.parse(xmlHttp.responseText));
+            try {
+                var jsonData = JSON.parse(xmlHttp.responseText);
+                setBlogPosts(jsonData);
+            } catch (ex) {
+                // retry in 5 seconds
+                setTimeout(getBlogPosts, 5000);
+            }
         }
     }
     xmlHttp.open("GET", '/home/get-blog-posts', true);
@@ -135,16 +141,16 @@ function getBlogPosts() {
 }
 
 function setBlogPosts(blogPosts) {
-    console.log('got the blog posts');
-    var blogPostsContainer = document.getElementsByClassName('js-blogPosts')[0];
-    if (blogPostsContainer.children.item(0).dataset.id !== blogPosts[0].id) {
+    var blogPostsContainer = document.getElementsByClassName('js-blogPosts')[0],
+        children = blogPostsContainer.children;
+    if (children.length === 0 || children.item(0).dataset.id !== blogPosts[0].id) {
         removeAllChildren(blogPostsContainer);
         for (var i = 0; i < blogPosts.length; i++) {
             var blogPost = blogPosts[i];
-            console.log(blogPost.id);
             var div = document.createElement('div');
             div.className = 'blogPost';
             div.style.background = "url('" + blogPost.image + "')";
+            console.log(div);
             div.dataset.id = blogPost.id;
             var a = document.createElement('a');
             var linkText = document.createTextNode(blogPost.title);

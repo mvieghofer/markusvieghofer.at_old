@@ -1,6 +1,6 @@
 <?php
 
-require_once(realpath(dirname(__FILE__) . "/../../../markusvieghofer.at_config/SecureConfig.php"));
+require_once(realpath(dirname(__FILE__) . "/../../resources/SecureConfig.php"));
 use Illuminate\Database\Capsule\Manager as Capsule;
 $capsule = new Capsule();
 $capsule->addConnection([

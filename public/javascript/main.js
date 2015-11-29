@@ -2,34 +2,51 @@ window.onload = function() {
     if (window.location.hash) {
         smoothScrollToAnchor();
     }
-    startDescriptionAnimation();
     addScrollIndicatorListener();
+    addNavLinksClickListener();
+    startDescriptionAnimation();
     getBlogPosts();
 };
 
-(function() {
+var animationIndex = 1;
+var animate = true;
+
+window.onfocus = function() {
+    animate = true;
+    animationIndex++;
+    startDescriptionAnimation();
+}
+
+window.onblur = function() {
+    animate = false;
+}
+
+function addNavLinksClickListener() {
     var navLinks = document.getElementsByClassName('navLink');
     var i = 0;
     for (i = 0; i < navLinks.length; i++) {
         var navLink = navLinks[i];
         navLink.addEventListener("click", navLinkClickListener);
     };
-})();
+}
 
 function addScrollIndicatorListener() {
+    var scrollIndicator = document.getElementsByClassName('indicator')[0],
+        classNames = scrollIndicator.className,
+        upClass = "up";
+    checkScrollIndicator(scrollIndicator, classNames, upClass);
     document.onscroll = function() {
-        var scrollIndicator = document.getElementsByClassName('indicator')[0],
-            classNames = scrollIndicator.className,
-            upClass = "up",
-            bounceClass = "bounce";
-        if (document.body.scrollTop == 0) {
-            scrollIndicator.className = removeClassName(scrollIndicator, upClass) + " " + bounceClass;
-            scrollIndicator.onclick = emptyScrollListener;
-        } else if (classNames.indexOf(upClass, classNames.length - upClass.length) === -1) {
-            scrollIndicator.className = classNames + " " +  upClass;
-            scrollIndicator.className = removeClassName(scrollIndicator, bounceClass);
-            scrollIndicator.onclick = scrollToTop;
-        }
+        checkScrollIndicator(scrollIndicator, classNames, upClass);
+    }
+}
+
+function checkScrollIndicator(scrollIndicator, classNames, upClass) {
+    if (document.body.scrollTop == 0) {
+        scrollIndicator.className = removeClassName(scrollIndicator, upClass);
+        scrollIndicator.onclick = emptyScrollListener;
+    } else if (classNames.indexOf(upClass, classNames.length - upClass.length) === -1) {
+        scrollIndicator.className = classNames + " " +  upClass;
+        scrollIndicator.onclick = scrollToTop;
     }
 }
 
@@ -44,7 +61,6 @@ function removeClassName(element, className) {
 }
 
 function emptyScrollListener() {
-    console.log('click');
     return false;
 }
 
@@ -64,16 +80,14 @@ function startDescriptionAnimation() {
         'a geek',
         'a dog person'
     ];
-    var index = 1;
-    setTimeout(startDescriptionAnimationImpl, 3000, descriptions, index);
+    setTimeout(startDescriptionAnimationImpl, 3000, descriptions);
 }
 
-function startDescriptionAnimationImpl(descriptions, index) {
-    if (index == descriptions.length) {
-        index = 0;
+function startDescriptionAnimationImpl(descriptions) {
+    if (animationIndex >= descriptions.length) {
+        animationIndex = 0;
     }
-    console.log(descriptions[index]);
-    var newDescriptionText = descriptions[index],
+    var newDescriptionText = descriptions[animationIndex],
         description = document.getElementById('description'),
         duration = 200,
         descriptionWrapper = document.getElementById('descriptionWrapper'),
@@ -83,7 +97,9 @@ function startDescriptionAnimationImpl(descriptions, index) {
         stepSize = lineHeight / steps,
         sleepTime = duration / steps;
     animateDescription(description, 0, stepSize, sleepTime, steps, newDescriptionText);
-    setTimeout(startDescriptionAnimationImpl, 3000, descriptions, ++index);
+    if (animate) {
+        setTimeout(startDescriptionAnimationImpl, 3000, descriptions, ++animationIndex);
+    }
 }
 
 function animateDescription(description, step, stepSize, sleepTime, maxSteps, newDescriptionText) {

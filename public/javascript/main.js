@@ -41,7 +41,7 @@ function addScrollIndicatorListener() {
 }
 
 function checkScrollIndicator(scrollIndicator, classNames, upClass) {
-    if (document.body.scrollTop == 0) {
+    if (window.scrollY <= 0) {
         scrollIndicator.className = removeClassName(scrollIndicator, upClass);
         scrollIndicator.onclick = emptyScrollListener;
     } else if (classNames.indexOf(upClass, classNames.length - upClass.length) === -1) {

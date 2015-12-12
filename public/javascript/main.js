@@ -75,55 +75,52 @@ function scrollToTop() {
     scrollTo(document.body, scrollPosition, duration, id);
 }
 
+var descriptions = [
+    'a developer',
+    'a father',
+    'a free athlete',
+    'a boyfriend',
+    'a geek',
+    'a dog person'
+];
+
+var animationIndex = 1;
+
 function startDescriptionAnimation() {
-    var descriptions = [
-        'a developer',
-        'a father',
-        'a free athlete',
-        'a boyfriend',
-        'a geek',
-        'a dog person'
-    ];
-    setTimeout(startDescriptionAnimationImpl, 3000, descriptions);
+    setTimeout(startDescriptionAnimationImpl, 3000);
 }
 
-function startDescriptionAnimationImpl(descriptions) {
+function startDescriptionAnimationImpl() {
     if (animationIndex >= descriptions.length) {
         animationIndex = 0;
     }
     var newDescriptionText = descriptions[animationIndex],
         description = document.getElementById('description'),
-        duration = 200,
+        descriptionTop = 0.0,
         descriptionWrapper = document.getElementById('descriptionWrapper'),
+        duration = 200,
         lineHeight = window.getComputedStyle(descriptionWrapper).getPropertyValue('line-height');
     lineHeight = lineHeight.substring(0, lineHeight.length - 2);
     var steps = 100,
         stepSize = lineHeight / steps,
         sleepTime = duration / steps;
-    animateDescription(description, 0, stepSize, sleepTime, steps, newDescriptionText);
-    if (animate) {
-        setTimeout(startDescriptionAnimationImpl, 3000, descriptions, ++animationIndex);
-    }
+    animateDescription(description, descriptionTop, 0, stepSize, sleepTime, steps, newDescriptionText);
 }
 
-function animateDescription(description, step, stepSize, sleepTime, maxSteps, newDescriptionText) {
-    var top = description.style.top;
-    if (top.indexOf('px') > 0) {
-        top = top.substring(0, top.length - 2);
-    } else {
-        top = 0;
-    }
-    description.style.top = (parseFloat(top) + stepSize) + "px";
-    if (step < maxSteps) {
-        setTimeout(animateDescription, sleepTime, description, ++step, stepSize, sleepTime, maxSteps, newDescriptionText);
-    } else if (step == maxSteps) {
+function animateDescription(description, descriptionTop, step, stepSize, sleepTime, maxSteps, newDescriptionText) {
+    descriptionTop += stepSize;
+    description.style.top = descriptionTop + "px";
+    if (step == maxSteps) {
         var newText = document.createTextNode(newDescriptionText);
         description.removeChild(description.firstChild);
         description.appendChild(newText);
-        description.style.top = "-" + (stepSize * maxSteps) + "px";
-        setTimeout(animateDescription, sleepTime, description, ++step, stepSize, sleepTime, maxSteps, newDescriptionText);
+        descriptionTop = (stepSize * maxSteps) * -1;
+        description.style.top = descriptionTop + "px";
+        setTimeout(animateDescription, sleepTime, description, descriptionTop, ++step, stepSize, sleepTime, maxSteps, newDescriptionText);
     } else if (step < (maxSteps * 2)) {
-        setTimeout(animateDescription, sleepTime, description, ++step, stepSize, sleepTime, maxSteps, newDescriptionText);
+        setTimeout(animateDescription, sleepTime, description, descriptionTop, ++step, stepSize, sleepTime, maxSteps, newDescriptionText);
+    } else if (animate) {
+        setTimeout(startDescriptionAnimationImpl, 3000, ++animationIndex);
     }
 }
 

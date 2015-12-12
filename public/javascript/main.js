@@ -56,7 +56,6 @@ function removeClassName(element, className) {
         newClassNames = classNames;
     if (indexOfClass > 0) {
         var newClassNames = classNames.substring(0, indexOfClass);
-        console.log(indexOfClass);
         if (indexOfClass + className.length < classNames.length) {
             newClassNames += classNames.substring(indexOfClass + className.length, classNames.length);
         }
@@ -151,7 +150,6 @@ function setBlogPosts(blogPosts) {
             var div = document.createElement('div');
             div.className = 'blogPost';
             div.style.background = "url('" + blogPost.image + "')";
-            console.log(div);
             div.dataset.id = blogPost.id;
             var a = document.createElement('a');
             var linkText = document.createTextNode(blogPost.title);

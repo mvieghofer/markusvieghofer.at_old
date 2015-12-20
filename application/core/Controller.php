@@ -9,6 +9,7 @@ class Controller {
 
     public function __construct() {
         $this->view = new View();
+        header('Content-type: text/html; charset=utf-8');
     }
 
     public function model($model) {

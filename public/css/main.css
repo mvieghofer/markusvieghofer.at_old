@@ -282,14 +282,13 @@ section h1 {
 .arrow {
     border-bottom: 1px solid black;
     border-left: 1px solid black;
-    left: 50%;
-    transform: rotate(-45deg) translateY(-50%);
+    right: 50%;
+    transform: translate(50%, -50%) rotate(-45deg);
 }
 
 .up {
     transform: rotate(135deg);
     right: 10px;
-    left: 95%;
     cursor: pointer;
 }
 

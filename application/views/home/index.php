@@ -6,7 +6,7 @@
 <div class="indicator arrow bounce"></div>
 <section id="main">
     <div class="container">
-        <div id="meText">I'm Markus Vieghofer</div>
+        <h1 id="meText">I'm Markus Vieghofer</h1>
         <div id="descriptionWrapper">
             <div class="visible">
                 <p>I'm <span id="description">a developer</span></p>

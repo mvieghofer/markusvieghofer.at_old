@@ -16,7 +16,7 @@
     </div>
 </section>
 <section id="social" class="subsection">
-    <h1>#social</h1>
+    <h2>#social</h2>
     <ul class="socialLinks">
         <li><a href="https://twitter.com/mvieghofer" target="_blank" class="twitter"><div>Twitter</div></a></li>
         <li><a href="https://github.com/mvieghofer" target="_blank" class="github"><div>Github</div></a></li>
@@ -24,7 +24,7 @@
     </ul>
 </section>
 <section id="skills" class="subsection">
-    <h1>#skills</h1>
+    <h2>#skills</h2>
     <div class="skillSection">
         <h3>Programming Languages</h3>
         <div class="skillList">
@@ -103,7 +103,7 @@
     </div>
 </section>
 <section id="blog" class="subsection">
-    <h1>#blog</h1>
+    <h2>#blog</h2>
     <div class="blogPosts js-blogPosts">
         <? foreach($data as $obj) { ?>
             <div class="blogPost" style="background: url(<?= $obj['image'] ?>)" data-id="<?= $obj['id'] ?>">

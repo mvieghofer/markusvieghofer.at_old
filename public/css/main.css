@@ -31,7 +31,7 @@ section:nth-child(even) {
     background: #bdc3c7;
 }
 
-section h1 {
+section h2 {
     margin: 0;
     padding: 0px;
     text-align: center;

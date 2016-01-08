@@ -9,7 +9,6 @@ html, body {
 }
 
 a {
-    text-decoration: none;
     color: #000;
 }
 
@@ -122,11 +121,31 @@ section h2 {
     padding: 5%;
 }
 
-.github::before {
+.socialLinks-link {
+    text-decoration: none;
+}
+
+.socialLinks-link:hover {
+    text-decoration: none;
+}
+
+.socialLinks-link .socialLinks-link-text {
+    border-bottom: 2px solid transparent;
+    transition: border 0.2s ease-in-out;
+    -moz-transition: border 0.2s ease-in-out;
+    -webkit-transition: border 0.2s ease-in-out;
+}
+
+.socialLinks-link:hover .socialLinks-link-text {
+    border-color: #000;
+}
+
+#github::before {
     content: "";
     height: 5em;
     width: 5em;
     display: inline-block;
+    margin-bottom: 10px;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('/public/images/github_white.png');
@@ -135,15 +154,16 @@ section h2 {
     -webkit-transition: background 0.2s ease-in-out;
 }
 
-.github:hover::before {
+#github:hover::before {
     background-image: url('/public/images/github.png');
 }
 
-.twitter::before {
+#twitter::before {
     content: "";
     height: 5em;
     width: 5em;
     display: inline-block;
+    margin-bottom: 10px;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('/public/images/twitter_white.png');
@@ -152,15 +172,16 @@ section h2 {
     -webkit-transition: background 0.2s ease-in-out;
 }
 
-.twitter:hover::before {
+#twitter:hover::before {
     background-image: url('/public/images/twitter.png');
 }
 
-.linkedIn::before {
+#linkedIn::before {
     content: "";
     height: 5em;
     width: 5em;
     display: inline-block;
+    margin-bottom: 10px;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('/public/images/linkedin_white.png');
@@ -169,7 +190,7 @@ section h2 {
     -webkit-transition: background 0.2s ease-in-out;
 }
 
-.linkedIn:hover::before {
+#linkedIn:hover::before {
     background-image: url('/public/images/linkedin.png');
 }
 
@@ -190,6 +211,7 @@ section h2 {
 .blogPost-link {
     width: 100%;
     height: 100%;
+    text-decoration: none;
     display: block;
     box-sizing: border-box;
     padding: 5%;

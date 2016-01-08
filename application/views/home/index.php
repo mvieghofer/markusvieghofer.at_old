@@ -18,9 +18,27 @@
 <section id="social" class="subsection">
     <h2>#social</h2>
     <ul class="socialLinks">
-        <li><a href="https://twitter.com/mvieghofer" target="_blank" class="twitter"><div>Twitter</div></a></li>
-        <li><a href="https://github.com/mvieghofer" target="_blank" class="github"><div>Github</div></a></li>
-        <li><a href="https://at.linkedin.com/in/mvieghofer" target="_blank" class="linkedIn"><div>LinkedIn</div></a></li>
+        <li>
+            <a href="https://twitter.com/mvieghofer" target="_blank" id="twitter" class="socialLinks-link">
+                <div>
+                    <span class="socialLinks-link-text">Twitter</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/mvieghofer" target="_blank" id="github" class="socialLinks-link">
+                <div>
+                    <span class="socialLinks-link-text">Github</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="https://at.linkedin.com/in/mvieghofer" target="_blank" id="linkedIn" class="socialLinks-link">
+                <div>
+                    <span class="socialLinks-link-text">LinkedIn</span>
+                </div>
+            </a>
+        </li>
     </ul>
 </section>
 <section id="skills" class="subsection">

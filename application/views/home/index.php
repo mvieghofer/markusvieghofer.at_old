@@ -123,13 +123,7 @@
 <section id="blog" class="subsection">
     <h2>#blog</h2>
     <div class="blogPosts js-blogPosts">
-        <? foreach($data as $obj) { ?>
-            <div class="blogPost" style="background: url(<?= $obj['image'] ?>)" data-id="<?= $obj['id'] ?>">
-                <a class="blogPost-link" target="_blank" title="<?= $obj['title'] ?>" href="<?= $obj['url'] ?>">
-                    <?= $obj['title'] ?>
-                </a>
-            </div>
-        <? } ?>
+        
     </div>
 </section>
 <script type="text/javascript" src="/public/javascript/main.js"></script>

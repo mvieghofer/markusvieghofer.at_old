@@ -123,53 +123,6 @@ function animateDescription(description, descriptionTop, step, stepSize, sleepTi
     }
 }
 
-function getBlogPosts() {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-            try {
-                var jsonData = JSON.parse(xmlHttp.responseText);
-                setBlogPosts(jsonData);
-            } catch (ex) {
-                // retry in 5 seconds
-                setTimeout(getBlogPosts, 5000);
-            }
-        }
-    }
-    xmlHttp.open("GET", '/home/get-blog-posts', true);
-    xmlHttp.send();
-}
-
-function setBlogPosts(blogPosts) {
-    var blogPostsContainer = document.getElementsByClassName('js-blogPosts')[0],
-        children = blogPostsContainer.children;
-    if (children.length === 0 || children.item(0).dataset.id !== blogPosts[0].id) {
-        removeAllChildren(blogPostsContainer);
-        for (var i = 0; i < blogPosts.length; i++) {
-            var blogPost = blogPosts[i];
-            var div = document.createElement('div');
-            div.className = 'blogPost';
-            div.style.background = "url('" + blogPost.image + "')";
-            div.dataset.id = blogPost.id;
-            var a = document.createElement('a');
-            var linkText = document.createTextNode(blogPost.title);
-            a.className = 'blogPost-link';
-            a.target = '_blank';
-            a.appendChild(linkText);
-            a.title = blogPost.title;
-            a.href = blogPost.url;
-            div.appendChild(a);
-            blogPostsContainer.appendChild(div);
-        }
-    }
-}
-
-function removeAllChildren(container) {
-    while(container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
-}
-
 function smoothScrollToAnchor() {
     var id = window.location.hash;
     window.location.hash = '';

@@ -29,4 +29,4 @@
     <meta name="apple-mobile-web-app-title" content="Markus Vieghofer">
     <meta name="application-name" content="Markus Vieghofer">
     <meta charset="utf-8">
-    <meta name="description" content="Hi, I'm Markus Vieghofer, a Software Developer based in Linz, Austria. For the most time I develop Java and PHP applications. When I'm not programming, I do sports, play with my kids or read." />
+    <meta name="description" content="Hi, I'm Markus Vieghofer, a Software Developer based in Linz, Austria. I develop Java and PHP applications, do sports, play with my kids or read." />

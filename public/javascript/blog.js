@@ -48,7 +48,6 @@ function getImageLink(image) {
             first = image.substring(0, index + upload.length);
             last = image.substring(index + upload.length, image.length),
             image = first + "/h_169,w_300" + last;
-        console.log(image);
     }
     return image;
 }

@@ -42,6 +42,13 @@ function getBlogPostUrl(url) {
 function getImageLink(image) {
     if (image.indexOf("http://") !== 0 && image.indexOf("https://") !== 0) {
         image = baseUrl + image;
+    } else if (image.indexOf("http://res.cloudinary.com") === 0) {
+        var upload = "upload",
+            index = image.lastIndexOf(upload),
+            first = image.substring(0, index + upload.length);
+            last = image.substring(index + upload.length, image.length),
+            image = first + "/h_169,w_300" + last;
+        console.log(image);
     }
     return image;
 }

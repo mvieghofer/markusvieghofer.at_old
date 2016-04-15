@@ -33,7 +33,7 @@
             </a>
         </li>
         <li>
-            <a href="https://at.linkedin.com/in/mvieghofer" target="_blank" id="linkedIn" class="socialLinks-link">
+            <a href="https://www.linkedin.com/in/mvieghofer" target="_blank" id="linkedIn" class="socialLinks-link">
                 <div>
                     <span class="socialLinks-link-text">LinkedIn</span>
                 </div>
@@ -123,7 +123,7 @@
 <section id="blog" class="subsection">
     <h2>#blog</h2>
     <div class="blogPosts js-blogPosts">
-        
+
     </div>
 </section>
 <script type="text/javascript" src="/public/javascript/main.js"></script>
